@@ -136,6 +136,13 @@ Vagrant.configure("2") do |config|
      echo -e "******** End installing Jaeger Deployment ********\n"
      echo "******** Verify jaeger all-in-one is running ********"
      /usr/local/bin/kubectl get pods
+     echo "******** Begin installing Frontend | Backend | Trial ********"
+     /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/app/frontend.yaml
+     /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/app/backend.yaml
+     /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/app/trial.yaml
+     echo -e "******** End installing Frontend | Backend | Trial ********"
+     echo "******** Verify apps is running ********"
+     /usr/local/bin/kubectl get pods
   SHELL
 
 end
