@@ -111,7 +111,7 @@ Vagrant.configure("2") do |config|
      /usr/local/bin/helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
      /usr/local/bin/helm repo add stable https://charts.helm.sh/stable
      /usr/local/bin/helm repo update
-     /usr/local/bin/helm install prometheus -f https://raw.githubusercontent.com/jrveras/module_3_project/main/values.yaml prometheus-community/prometheus --namespace monitoring
+     /usr/local/bin/helm install prometheus -f https://raw.githubusercontent.com/jrveras/module_3_project/main/values.yaml prometheus-community/prometheus --namespace monitoring --kubeconfig /etc/rancher/k3s/k3s.yaml
      echo -e "******** End installing Grafana and Prometheus ********\n\n"
      echo -e "******** Begin installing Jaeger ********\n"
      /usr/local/bin/kubectl create namespace observability
