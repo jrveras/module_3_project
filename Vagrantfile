@@ -131,9 +131,10 @@ Vagrant.configure("2") do |config|
      echo "******** Verify jaeger is running ********"
      /usr/local/bin/kubectl get pods --namespace=observability
      echo -e "******** Begin installing Jaeger Deployment ********\n"
-     /usr/local/bin/helm helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
+     /usr/local/bin/helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
      /usr/local/bin/helm repo update
-     /usr/local/bin/helm helm install jaeger jaegertracing/jaeger --values values-jaeger.yaml  --kubeconfig /etc/rancher/k3s/k3s.yaml
+    #  /usr/local/bin/helm install jaeger -f jaegertracing/jaeger --values https://raw.githubusercontent.com/jrveras/module_3_project/main/values-jaeger.yaml --kubeconfig /etc/rancher/k3s/k3s.yaml
+     /usr/local/bin/helm install jaeger -f https://raw.githubusercontent.com/jrveras/module_3_project/main/values-jaeger.yaml jaegertracing/jaeger --namespace default --kubeconfig /etc/rancher/k3s/k3s.yaml
     #  /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/tracing-networkpolicy.yaml
     #  /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/jaeger-deployment.yaml
     #  /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/jaeger-service.yaml

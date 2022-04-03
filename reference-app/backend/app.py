@@ -22,7 +22,8 @@ mongo = PyMongo(app)
 @tracing.trace()
 def homepage():
     span = tracing.get_span()
-    opentracing_tracer.inject(span, opentracing.Format.TEXT_MAP, 'hello world')
+    text_carrier = {}
+    opentracing_tracer.inject(span, opentracing.Format.TEXT_MAP, text_carrier)
     # Log para incluir o evento no Jaeger
     span.log_kv({'event': 'Carregando os dados da pessoa.'})
     return "Hello World"
