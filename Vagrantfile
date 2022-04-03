@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   # NOTE: This will enable public access to the opened port
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 9090, host: 9090
-  config.vm.network "forwarded_port", guest: 8080, host: 8080 # API Access
+  #config.vm.network "forwarded_port", guest: 8080, host: 8080 # API Access
   #config.vm.network "forwarded_port", guest: 8888, host: 8080 
   config.vm.network "forwarded_port", guest: 9090, host: 8888
   config.vm.network "forwarded_port", guest: 3000, host: 3000
@@ -111,7 +111,7 @@ Vagrant.configure("2") do |config|
      /usr/local/bin/helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
      /usr/local/bin/helm repo add stable https://charts.helm.sh/stable
      /usr/local/bin/helm repo update
-     /usr/local/bin/helm install prometheus values.yaml prometheus-community/kube-prometheus-stack --namespace monitoring --kubeconfig /etc/rancher/k3s/k3s.yaml
+     /usr/local/bin/helm install prometheus -f https://raw.githubusercontent.com/jrveras/module_3_project/main/values.yaml prometheus-community/prometheus --namespace monitoring
      echo -e "******** End installing Grafana and Prometheus ********\n\n"
      echo -e "******** Begin installing Jaeger ********\n"
      /usr/local/bin/kubectl create namespace observability
@@ -125,16 +125,14 @@ Vagrant.configure("2") do |config|
      /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/cluster_role.yaml
      /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/cluster_role_binding.yaml
      echo -e "******** End configuring Cluster wide Jaeger ********\n\n"
-     echo "******** Verify helm is installed ********"
-     /usr/local/bin/helm ls --kubeconfig /etc/rancher/k3s/k3s.yaml --namespace=monitoring
      echo "******** Verify prometheus is installed ********"
      /usr/local/bin/kubectl get pods --namespace=monitoring
      echo "******** Verify jaeger is running ********"
      /usr/local/bin/kubectl get pods --namespace=observability
      echo -e "******** Begin installing Jaeger Deployment ********\n"
-     /usr/local/bin/kubectl apply -f tracing-networkpolicy.yaml
-     /usr/local/bin/kubectl apply -f /manifests/jaeger-deployment.yaml
-     /usr/local/bin/kubectl apply -f /manifests/jaeger-service.yaml
+     /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/tracing-networkpolicy.yaml
+     /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/jaeger-deployment.yaml
+     /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/jaeger-service.yaml
      echo -e "******** End installing Jaeger Deployment ********\n"
      echo "******** Verify jaeger all-in-one is running ********"
      /usr/local/bin/kubectl get pods
