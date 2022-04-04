@@ -129,7 +129,8 @@ Vagrant.configure("2") do |config|
      echo -e "******** End installing Jaeger ********\n\n"
      echo -e "******** Begin configuring Cluster wide Jaeger ********\n"
      /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/cluster_role.yaml
-     /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/cluster_role_binding.yaml
+    #  /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/cluster_role_binding.yaml
+     /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/cluster_role_binding.yaml
      echo -e "******** End configuring Cluster wide Jaeger ********\n\n"
      echo "******** Verify prometheus is installed ********"
      /usr/local/bin/kubectl get pods --namespace=monitoring
