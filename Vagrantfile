@@ -115,12 +115,17 @@ Vagrant.configure("2") do |config|
      /usr/local/bin/helm install prometheus -f https://raw.githubusercontent.com/jrveras/module_3_project/main/values.yaml prometheus-community/kube-prometheus-stack --namespace monitoring --kubeconfig /etc/rancher/k3s/k3s.yaml
      echo -e "******** End installing Grafana and Prometheus ********\n\n"
      echo -e "******** Begin installing Jaeger ********\n"
-     /usr/local/bin/kubectl create namespace observability
-     /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/crds/jaegertracing.io_jaegers_crd.yaml
-     /usr/local/bin/kubectl create -n observability -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/service_account.yaml
-     /usr/local/bin/kubectl create -n observability -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/role.yaml
-     /usr/local/bin/kubectl create -n observability -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/role_binding.yaml
-     /usr/local/bin/kubectl create -n observability -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/operator.yaml
+    #  /usr/local/bin/kubectl create namespace observability
+    #  /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/crds/jaegertracing.io_jaegers_crd.yaml
+    #  /usr/local/bin/kubectl create -n observability -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/service_account.yaml
+    #  /usr/local/bin/kubectl create -n observability -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/role.yaml
+    #  /usr/local/bin/kubectl create -n observability -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/role_binding.yaml
+    #  /usr/local/bin/kubectl create -n observability -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/operator.yaml
+    /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/crds/jaegertracing.io_jaegers_crd.yaml
+    /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/service_account.yaml
+    /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/role.yaml
+    /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/role_binding.yaml
+    /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/operator.yaml
      echo -e "******** End installing Jaeger ********\n\n"
      echo -e "******** Begin configuring Cluster wide Jaeger ********\n"
      /usr/local/bin/kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/v1.28.0/deploy/cluster_role.yaml
@@ -129,15 +134,16 @@ Vagrant.configure("2") do |config|
      echo "******** Verify prometheus is installed ********"
      /usr/local/bin/kubectl get pods --namespace=monitoring
      echo "******** Verify jaeger is running ********"
-     /usr/local/bin/kubectl get pods --namespace=observability
+    #  /usr/local/bin/kubectl get pods --namespace=observability
      echo -e "******** Begin installing Jaeger Deployment ********\n"
-     /usr/local/bin/helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
-     /usr/local/bin/helm repo update
+    #JAJA  /usr/local/bin/helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
+    #JAJA  /usr/local/bin/helm repo update
     #  /usr/local/bin/helm install jaeger -f jaegertracing/jaeger --values https://raw.githubusercontent.com/jrveras/module_3_project/main/values-jaeger.yaml --kubeconfig /etc/rancher/k3s/k3s.yaml
-     /usr/local/bin/helm install jaeger -f https://raw.githubusercontent.com/jrveras/module_3_project/main/values-jaeger.yaml jaegertracing/jaeger --namespace default --kubeconfig /etc/rancher/k3s/k3s.yaml
+    #JAJA  /usr/local/bin/helm install jaeger -f https://raw.githubusercontent.com/jrveras/module_3_project/main/values-jaeger.yaml jaegertracing/jaeger --namespace default --kubeconfig /etc/rancher/k3s/k3s.yaml
     #  /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/tracing-networkpolicy.yaml
     #  /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/jaeger-deployment.yaml
     #  /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/jaeger-service.yaml
+     /usr/local/bin/kubectl apply -f https://raw.githubusercontent.com/jrveras/module_3_project/main/manifests/app/simplest.yaml
      echo -e "******** End installing Jaeger Deployment ********\n"
      echo "******** Verify jaeger all-in-one is running ********"
      /usr/local/bin/kubectl get pods
