@@ -21,7 +21,7 @@ spec:
             - name: JAEGER_PORT
               value: JAEGER_PORT
             - name: JAEGER_SERVICE_NAME
-              value: backend-api
+              value: backend
           name: backend
           image: jairtonjr/backend:latest
           imagePullPolicy: Always

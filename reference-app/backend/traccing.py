@@ -5,7 +5,7 @@ import os
 
 JAEGER_HOST = os.getenv("JAEGER_HOST", "jaeger")
 JAEGER_PORT = os.getenv("JAEGER_PORT", "6831")
-JAEGER_SERVICE_NAME = os.getenv("JAEGER_SERVICE_NAME", "backend-api")
+JAEGER_SERVICE_NAME = os.getenv("JAEGER_SERVICE_NAME", "backend")
 
 def init_tracer(service):
     logging.getLogger('').handlers = []
