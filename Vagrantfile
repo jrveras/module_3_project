@@ -83,7 +83,7 @@ Vagrant.configure("2") do |config|
 
     vb.memory = "4096"
     #vb.memory = "2048"
-    vb.name = "MetricsDashboard"
+    vb.name = "MetricsDashboard-2"
   end
 
   args = []
