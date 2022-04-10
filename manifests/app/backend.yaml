@@ -5,22 +5,21 @@ metadata:
     "sidecar.jaegertracing.io/inject": "true"
   labels:
     app: backend
-  name: backend
+  name: backend-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: backend
   template:
     metadata:
       labels:
-        # io.kompose.network/tracing: "true"
         app: backend
     spec:
       containers:
         - env:
             - name: JAEGER_HOST
-              value: jaeger-agent.observability.svc.cluster.local
+              value: simplest-agent.observability.svc.cluster.local
             - name: JAEGER_PORT
               value: JAEGER_PORT
             - name: JAEGER_SERVICE_NAME
@@ -38,7 +37,7 @@ metadata:
   annotations:
     prometheus.io/port: "9090"
     prometheus.io/scrape: "true"
-  name: backend
+  name: backend-service
   labels:
     app: backend
 spec:
