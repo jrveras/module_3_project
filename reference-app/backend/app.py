@@ -30,6 +30,7 @@ def homepage():
 
 
 @app.route("/api")
+@tracing.trace()
 def my_api():
     answer = "something"
     return jsonify(repsonse=answer)
