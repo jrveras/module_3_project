@@ -20,7 +20,7 @@ spec:
       containers:
         - env:
             - name: JAEGER_HOST
-              value: jaeger-agent.observability.svc.cluster.local
+              value: simplest-agent.observability.svc.cluster.local
             - name: JAEGER_PORT
               value: JAEGER_PORT
             - name: JAEGER_SERVICE_NAME
