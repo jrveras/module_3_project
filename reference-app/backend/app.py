@@ -17,23 +17,39 @@ app.config[
 
 mongo = PyMongo(app)
 
-
 @app.route("/")
 @tracing.trace()
 def homepage():
     span = tracing.get_span()
-    text_carrier = {}
-    opentracing_tracer.inject(span, opentracing.Format.TEXT_MAP, text_carrier)
-    # Log para incluir o evento no Jaeger
-    span.log_kv({'event': 'Carregando os dados da pessoa.'})
-    return "Hello World"
+    with opentracing.tracer.start_span('welcome', child_of=span) as span_child:
+        answer = "Welcome My Home Page!!!"
+        span_child.log_kv({'event': '[HOMEPAGE] Tracing Welcome Answer.'})
+        span_child.set_tag("lenght_answer", len(answer))
+    span.log_kv({'event': '[HOMEPAGE] Tracing Home Page!'})
+    return answer
 
 
 @app.route("/api")
 @tracing.trace()
 def my_api():
-    answer = "something"
+    span = tracing.get_span()
+    
+    with opentracing.tracer.start_span('answer', child_of=span) as span_child:
+        answer = "something"
+        span_child.log_kv({'event': '[MY_API] Tracing My API Answer.'})
+        span_child.set_tag("lenght_answer", len(answer))
+    
+    span.log_kv({'event': '[MY_API] Tracing Something!'})
+    
     return jsonify(repsonse=answer)
+
+@app.route("/health")
+@tracing.trace()
+def health():
+    span = tracing.get_span()
+    span.log_kv({'event': '[HEALTH] Tracing Health!'})
+    status = "It's UP!!!"
+    return jsonify(repsonse=status)
 
 
 @app.route("/star", methods=["POST"])
