@@ -17,6 +17,8 @@
 
 ## Create a Basic Dashboard
 *TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+### Simple Dashboard with Prometheus as a source
+![Simple Dashboard with Prometheus as a source](answer-img/03-Grafana-Prometheus-as-a-Source.png)
 
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
