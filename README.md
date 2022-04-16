@@ -2,7 +2,7 @@
 
 ## Verify the monitoring installation
 
-![The default namespace installation.](answer-img/01-Kubectl-Namespace-Default.png) {height=400px width=500px}
+![The default namespace installation.](answer-img/01-Kubectl-Namespace-Default.png =100x20)
 
 ## Setup the Jaeger and Prometheus source
 *TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
