@@ -16,41 +16,62 @@
 
 
 ## Create a Basic Dashboard
-*TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
 ### Simple Dashboard with Prometheus as a source
 ![Simple Dashboard with Prometheus as a source](answer-img/03-Grafana-Prometheus-as-a-Source.png)
 
 ## Describe SLO/SLI
-*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+### Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+
+SLI is an artifact that collects information and is used to measure availability.
+SLIs could measure uptime, latency, or the proportion between success interactions for a specific period of time e.g. week, month; that means. We will aggregate interactions that don’t throw an exception or return an HTTP error or take more than a specific period of time to produce a result and define error policies as a playbook to reduce the likelihood or mitigate future problems.
 
 ## Creating SLI metrics.
-*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+### It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+*TODO:*
 
 ## Create a Dashboard to measure our SLIs
-*TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+### Dashboard Uptime Backend to 24hs
+![Dashboard Uptime Backend to 24hs](answer-img/04-Uptime-Backend-24hs.png)
+
+### Dashboard Uptime Frontend to 24hs
+![Dashboard Uptime Frontend to 24hs](answer-img/04-Uptime-Frontend-24hs.png)
+
+### Dashboards 40x and 50x Errors
+![Dashboard 40x and 50x Errors](answer-img/04-Errors-40x&50x-24hs.png)
+
+### Dashboards Uptime and Errors
+![Dashboard Uptime and Errors](answer-img/04-Dashboards-Uptime&Errors-24hs.png)
+
 
 ## Tracing our Flask App
-*TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
+### Trace Python Code - Part 1
+![Trace Python Code - Part 1](answer-img/05-Tracing-Code-01.png)
+
+### Trace Python Code - Part 2
+![Trace Python Code - Part 2](answer-img/05-Tracing-Code-02.png)
+
+### Jaeger in Panel
+![Jaeger in Panel](answer-img/05-Tracing-Jaeger.png)
 
 ## Jaeger in Dashboards
-*TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
+### Dashboard Grafana as a Jaeger Source - Part 1
+![Dashboard Grafana as a Jaeger Source - Part 1](answer-img/06-Jaeger-Dashboards-Grafana-01.png)
+
+### Dashboard Grafana as a Jaeger Source - Part 2
+![Dashboard Grafana as a Jaeger Source - Part 2](answer-img/06-Jaeger-Dashboards-Grafana-02.png)
+
 
 ## Report Error
 *TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
 
-TROUBLE TICKET
+### TROUBLE TICKET
 
-Name:
-
-Date:
-
-Subject:
-
-Affected Area:
-
-Severity:
-
-Description:
+Name: Application temporary unavailable
+Date: 15/04/2022
+Subject: Service Unavailable
+Affected Area: Backend - /api
+Severity: 7.0 - High
+Description: The application is unstable and frequently showing the follow message: Service Unavailable. Please contact the System Admnistrator.
 
 
 ## Creating SLIs and SLOs
