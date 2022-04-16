@@ -66,19 +66,27 @@ SLIs could measure uptime, latency, or the proportion between success interactio
 
 ### TROUBLE TICKET
 
-Name: Application temporary unavailable
-Date: 15/04/2022
-Subject: Service Unavailable
-Affected Area: Backend - /api
-Severity: 7.0 - High
-Description: The application is unstable and frequently showing the follow message: Service Unavailable. Please contact the System Admnistrator.
+- Name: Application temporary unavailable
+- Date: 15/04/2022
+- Subject: Service Unavailable
+- Affected Area: Backend - /api
+- Severity: 7.0 - High
+- Description: The application is unstable and frequently showing the follow message: Service Unavailable. Please contact the System Admnistrator.
 
 
 ## Creating SLIs and SLOs
-*TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
+SLO: The Applications need to have a 99.95% uptime per month. 
+SLI:
+- CPU Saturation (Saturation)
+- how many error messages we are seeing (Errors)
+- how many success messages we are seeing (Success)
+- Request Response time of the Apis (Latency)
 
 ## Building KPIs for our plan
-*TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+1. SLI: Total successful http requests is more than or equal to 99.95% in a month
+2. SLI: Total failing http requests is less than or equal to 0.05% in a month (40x and 50x)
+3. SLI: The CPU usage up till 75%
+4. SLI: The Memory usage up till 50%
 
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
