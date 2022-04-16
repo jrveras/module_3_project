@@ -26,8 +26,15 @@ SLI is an artifact that collects information and is used to measure availability
 SLIs could measure uptime, latency, or the proportion between success interactions for a specific period of time e.g. week, month; that means. We will aggregate interactions that don’t throw an exception or return an HTTP error or take more than a specific period of time to produce a result and define error policies as a playbook to reduce the likelihood or mitigate future problems.
 
 ## Creating SLI metrics.
-### It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
-*TODO:*
+
+- SLI Uptime = # Uptime in minutes / # Total minutes per period
+- SLI Errors = # Requests different than 5XX / # Total requests per period 
+- SLI Errors = # Requests different than 4XX / # Total requests per period
+- SLI Latency = # Requests with latency < 1000ms / # Total Requests per period
+
+SLI must help product owners find an easy way to understand and define an SLO, in that way would be much appropriate to work with latency in seconds or milliseconds rather than proportions.
+
+- SLI Latency = Latency value for 99% of users.
 
 ## Create a Dashboard to measure our SLIs
 ### Dashboard Uptime Backend to 24hs
@@ -62,8 +69,6 @@ SLIs could measure uptime, latency, or the proportion between success interactio
 
 
 ## Report Error
-*TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
-
 ### TROUBLE TICKET
 
 - Name: Application temporary unavailable
@@ -73,6 +78,7 @@ SLIs could measure uptime, latency, or the proportion between success interactio
 - Severity: 7.0 - High
 - Description: The application is unstable and frequently showing the follow message: Service Unavailable. Please contact the System Admnistrator.
 
+![Jaeger Ticket Tracing](answer-img/07-Ticket-Tracing.png)
 
 ## Creating SLIs and SLOs
 SLO: The Applications need to have a 99.95% uptime per month. 
@@ -89,4 +95,5 @@ SLI:
 4. SLI: The Memory usage up till 50%
 
 ## Final Dashboard
-*TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+
+![Final Dashboard](answer-img/08-Final-Dashboard.png)
