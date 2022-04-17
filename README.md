@@ -36,18 +36,12 @@ SLI must help product owners find an easy way to understand and define an SLO, i
 
 - SLI Latency = Latency value for 99% of users.
 
-## Create a Dashboard to measure our SLIs
-### Dashboard Uptime Backend to 24hs
-![Dashboard Uptime Backend to 24hs](answer-img/04-Uptime-Backend-24hs.png)
+## Create a Dashboard to measure our SLIs - Uptime and Response Time
+### Dashboard Uptime and Response Time Over 1h - Frontend and Backend Service
+![Dashboard Uptime Backend to 24hs](answer-img/04-Dashboard-Uptime_ResponseTime_Over-1h.png)
 
-### Dashboard Uptime Frontend to 24hs
-![Dashboard Uptime Frontend to 24hs](answer-img/04-Uptime-Frontend-24hs.png)
-
-### Dashboards 40x and 50x Errors
-![Dashboard 40x and 50x Errors](answer-img/04-Errors-40x&50x-24hs.png)
-
-### Dashboards Uptime and Errors
-![Dashboard Uptime and Errors](answer-img/04-Dashboards-Uptime&Errors-24hs.png)
+### Dashboard Uptime and Response Time Over 24hs - Frontend and Backend Service
+![Dashboard Uptime Frontend to 24hs](answer-img/04-Dashboard-Uptime_ResponseTime_Over-24hs.png)
 
 
 ## Tracing our Flask App
