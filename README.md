@@ -77,16 +77,24 @@ SLI must help product owners find an easy way to understand and define an SLO, i
 ## Creating SLIs and SLOs
 SLO: The Applications need to have a 99.95% uptime per month. 
 SLI:
-- CPU Saturation (Saturation)
-- how many error messages we are seeing (Errors)
-- how many success messages we are seeing (Success)
-- Request Response time of the Apis (Latency)
+- CPU and Memory usage (Saturation)
+- Error Rate: how many error messages we are seeing (Errors)
+- Request Response time of the Apis (Latency < 10ms)
+- Uptime >99.95%
 
 ## Building KPIs for our plan
-1. SLI: Total successful http requests is more than or equal to 99.95% in a month
-2. SLI: Total failing http requests is less than or equal to 0.05% in a month (40x and 50x)
-3. SLI: The CPU usage up till 75%
-4. SLI: The Memory usage up till 50%
+- CPU and Memory usage (Saturation)
+    a. CPU and Memory can not be usage above 80%, otherwise it will provoke application downtime.
+    b. This metric will indicate to the infrastructure administrator necessity to trigger compute auto scaling.
+- Error Rate
+    a. This metric show how stable is the application in production.
+    b. Total failing http requests is less than or equal to 0.05% in a month (40x and 50x)
+- Latency < 10ms
+    a. This metric show how API response time performance is good.
+    b. We need to keep tracking of response time of the requests to avoid application instability.
+- Uptime >99.95%
+    a. This metric help monitoring application health and guarantee client satisfaction.
+    b. This metric guarantee the company OKRs financial due to amount of time the application is live during  peak sales.
 
 ## Final Dashboard
 
