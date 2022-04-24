@@ -84,17 +84,17 @@ SLI:
 
 ## Building KPIs for our plan
 - CPU and Memory usage (Saturation)
-    a. CPU and Memory can not be usage above 80%, otherwise it will provoke application downtime.
-    b. This metric will indicate to the infrastructure administrator necessity to trigger compute auto scaling.
+    - CPU and Memory can not be usage above 80%, otherwise it will provoke application downtime.
+    - This metric will indicate to the infrastructure administrator necessity to trigger compute auto scaling.
 - Error Rate
-    a. This metric show how stable is the application in production.
-    b. Total failing http requests is less than or equal to 0.05% in a month (40x and 50x)
+    - This metric show how stable is the application in production.
+    - Total failing http requests is less than or equal to 0.05% in a month (40x and 50x)
 - Latency < 10ms
-    a. This metric show how API response time performance is good.
-    b. We need to keep tracking of response time of the requests to avoid application instability.
+    - This metric show how API response time performance is good.
+    - We need to keep tracking of response time of the requests to avoid application instability.
 - Uptime >99.95%
-    a. This metric help monitoring application health and guarantee client satisfaction.
-    b. This metric guarantee the company OKRs financial due to amount of time the application is live during  peak sales.
+    - This metric help monitoring application health and guarantee client satisfaction.
+    - This metric guarantee the company OKRs financial due to amount of time the application is live during  peak sales.
 
 ## Final Dashboard
 
